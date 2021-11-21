@@ -12,3 +12,5 @@ nest g controller <controller name>
 # create a new service
 # ex. `nest g service users` create file `users/users.service.ts`
 nest g service <service name>
+
+# create a new repository
