@@ -12,9 +12,9 @@ import { Report } from './reports/reports.entity';
   imports: [
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: 'db.sqlite',
+      database: 'db.sqlite', //db file name
       entities: [User, Report],
-      synchronize: true,
+      synchronize: true, // only for development
     }),
     UsersModule,
     ReportsModule,
