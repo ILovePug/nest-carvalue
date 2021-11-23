@@ -1,8 +1,28 @@
+@host=http://localhost:3000
+
 ### Create a new user
-POST http://localhost:3000/auth/signup
+POST {{host}}/auth/signup
 content-type: application/json
 
 {
     "email": "123@yahoo.com",
     "password":"232"
+}
+
+### Find a user
+GET {{host}}/auth/2
+
+### Find by email
+GET {{host}}/auth?email=123@yahoo.com
+
+
+### Remove a user
+DELETE {{host}}/auth/1
+
+### Update a user
+PATCH {{host}}/auth/5
+content-type: application/json
+
+{
+    "email": "321@gmail.com"
 }
