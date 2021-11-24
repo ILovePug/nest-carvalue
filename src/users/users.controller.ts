@@ -11,9 +11,12 @@ import {
 } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { UserDto } from './dto/user.dto';
 import { UsersService } from './users.service';
+import { Serilize } from '../interceptors/serialize.interceptor';
 
 @Controller('auth')
+@Serilize(UserDto)
 export class UsersController {
   constructor(private userSerivce: UsersService) {}
 

@@ -20,7 +20,7 @@ GET {{host}}/auth?email=123@yahoo.com
 DELETE {{host}}/auth/1
 
 ### Update a user
-PATCH {{host}}/auth/5
+PATCH {{host}}/auth/2
 content-type: application/json
 
 {
