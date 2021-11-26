@@ -18,6 +18,12 @@ content-type: application/json
     "password":"232"
 }
 
+### get currently signed in user
+GET {{host}}/auth/whoami
+
+### sign out
+POST {{host}}/auth/signout
+
 ### Find a user
 GET {{host}}/auth/2
 
