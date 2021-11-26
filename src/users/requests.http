@@ -5,7 +5,16 @@ POST {{host}}/auth/signup
 content-type: application/json
 
 {
-    "email": "123@yahoo.com",
+    "email": "1234@yahoo.com",
+    "password":"232"
+}
+
+### signin user
+POST {{host}}/auth/signin
+content-type: application/json
+
+{
+    "email": "1234@yahoo.com",
     "password":"232"
 }
 
