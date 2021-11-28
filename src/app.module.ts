@@ -1,4 +1,5 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, ValidationPipe } from '@nestjs/common';
+import { APP_PIPE } from '@nestjs/core';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -7,6 +8,9 @@ import { ReportsModule } from './reports/reports.module';
 
 import { User } from './users/users.entity';
 import { Report } from './reports/reports.entity';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const cookieSession = require('cookie-session');
 
 @Module({
   imports: [
@@ -20,6 +24,29 @@ import { Report } from './reports/reports.entity';
     ReportsModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_PIPE,
+
+      // used for DTO validation
+      useValue: new ValidationPipe({
+        // strip out any unmapped DTO properties
+        whitelist: true,
+      }),
+    },
+  ],
 })
-export class AppModule {}
+export class AppModule {
+  // apply middlewares to the modules
+  configure(consumer: MiddlewareConsumer) {
+    // can apply more than 1 middlwares
+    consumer
+      .apply(
+        cookieSession({
+          keys: ['sdfsdgsdfsd'],
+        }),
+      )
+      .forRoutes('*'); // applies on all routes which means global
+  }
+}
