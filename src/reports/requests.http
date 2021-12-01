@@ -1,0 +1,16 @@
+@host=http://localhost:3000
+
+### Create a new report
+POST {{host}}/reports
+content-type: application/json
+
+{
+    "make": "toyota",
+    "model": "corolla",
+    "year": 1980,
+    "mileage": 34223,
+    "lng": 0,
+    "lat": 0,
+    "price": 1,
+    "password":"232"
+}
