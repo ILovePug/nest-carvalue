@@ -5,7 +5,9 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
+  OneToMany,
 } from 'typeorm';
+import { Report } from '../reports/reports.entity';
 
 @Entity()
 export class User {
@@ -15,6 +17,12 @@ export class User {
   email: string;
   @Column()
   password: string;
+
+  @OneToMany(
+    () => Report, // link to Report Entity after all entites have been loaded. thats why it is callback
+    (report) => report.user, // which property it maps to in report entity
+  )
+  reports: Report[];
 
   @AfterInsert()
   private logInsert() {
