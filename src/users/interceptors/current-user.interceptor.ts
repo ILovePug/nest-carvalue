@@ -4,6 +4,7 @@ import {
   CallHandler,
   Injectable,
 } from '@nestjs/common';
+import { Request } from 'express';
 import { UsersService } from '../users.service';
 
 // mark this interceptor injectable by DI
@@ -13,7 +14,7 @@ export class CurrentUserInterceptor implements NestInterceptor {
 
   async intercept(context: ExecutionContext, handler: CallHandler) {
     // run something before a request is handled by the request handler
-    const request = context.switchToHttp().getRequest();
+    const request = context.switchToHttp().getRequest<Request>();
     const { userId } = request.session || {};
 
     if (userId) {
