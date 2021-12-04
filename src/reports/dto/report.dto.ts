@@ -16,7 +16,10 @@ export class ReportDto {
   make: string;
   @Expose()
   model: string;
+  @Expose()
   mileage: number;
+  @Expose()
+  approved: boolean;
 
   // transform obj is the Report Entity
   @Transform(({ obj }) => obj.user.id)

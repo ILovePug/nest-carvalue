@@ -14,3 +14,11 @@ content-type: application/json
     "price": 1,
     "password":"232"
 }
+
+### approve existing request
+PATCH {{host}}/reports/4
+content-type: application/json
+
+{
+    "approved": true
+}
