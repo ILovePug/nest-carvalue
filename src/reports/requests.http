@@ -16,9 +16,9 @@ content-type: application/json
 }
 
 ### approve existing request
-PATCH {{host}}/reports/4
+PATCH {{host}}/reports/1
 content-type: application/json
 
 {
-    "approved": true
+    "approved": false
 }

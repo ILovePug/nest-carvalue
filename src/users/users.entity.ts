@@ -18,6 +18,9 @@ export class User {
   @Column()
   password: string;
 
+  @Column({ default: true })
+  admin: boolean;
+
   @OneToMany(
     () => Report, // link to Report Entity after all entites have been loaded. thats why it is callback
     (report) => report.user, // which property it maps to in report entity
