@@ -1,7 +1,9 @@
 import {
   Controller,
+  Get,
   Post,
   Body,
+  Query,
   UseGuards,
   Patch,
   Param,
@@ -14,11 +16,17 @@ import { CurrentUser } from '../users/decorators/current-user.decorator';
 import { User } from '../users/users.entity';
 import { ReportDto } from './dto/report.dto';
 import { ApproveReportDto } from './dto/approve-report.dto';
+import { GetEstimateDto } from './dto/get-estimate.dto';
 import { Serilize } from '../interceptors/serialize.interceptor';
 
 @Controller('reports')
 export class ReportsController {
   constructor(private reportService: ReportsService) {}
+
+  @Get()
+  getEstimate(@Query() query: GetEstimateDto) {
+    return this.reportService.createEstimate(query);
+  }
 
   @Post()
   @UseGuards(AuthGuard)

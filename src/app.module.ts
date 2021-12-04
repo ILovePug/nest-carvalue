@@ -25,6 +25,7 @@ const cookieSession = require('cookie-session');
       inject: [ConfigService], // make env configs visible to typeORM
       useFactory: (config: ConfigService<EnvConfig>) => {
         return {
+          //logging: true, // needed to console log the raw sql
           type: 'sqlite',
           database: config.get('DB_NAME'),
           entities: [User, Report],

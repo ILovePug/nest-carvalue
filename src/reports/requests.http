@@ -5,8 +5,8 @@ POST {{host}}/reports
 content-type: application/json
 
 {
-    "make": "toyota",
-    "model": "corolla",
+    "make": "honda",
+    "model": "civic",
     "year": 1980,
     "mileage": 34223,
     "lng": 0,
@@ -22,3 +22,6 @@ content-type: application/json
 {
     "approved": false
 }
+
+### get reports
+GET {{host}}/reports?make=honda&model=corolla&year=1980&lng=0&lat=0&mileage=20000
