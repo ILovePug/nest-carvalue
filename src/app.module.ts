@@ -57,13 +57,15 @@ const cookieSession = require('cookie-session');
   ],
 })
 export class AppModule {
+  constructor(private configService: ConfigService<EnvConfig>) {}
+
   // apply middlewares to the modules
   configure(consumer: MiddlewareConsumer) {
     // can apply more than 1 middlwares
     consumer
       .apply(
         cookieSession({
-          keys: ['sdfsdgsdfsd'],
+          keys: [this.configService.get('COOKIE_KEY')],
         }),
       )
       .forRoutes('*'); // applies on all routes which means global
