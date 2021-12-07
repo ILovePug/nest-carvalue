@@ -16,6 +16,7 @@ nest g service <service name>
 
 # Migrations
 # generate a new migration. -n (name), -o (outputJs)
+# gotcha. it compares the schema with the compiled js inside dist folder. make sure compile first before create the migration
 # ex. `npm run typeorm migration:generate -- -n itial-schema -o`
 npm run typeorm migration:generate -- -n <name> -o
 

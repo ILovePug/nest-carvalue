@@ -26,6 +26,8 @@ export class User {
     (report) => report.user, // which property it maps to in report entity
   )
   reports: Report[];
+  @Column({ nullable: true })
+  gender: string | null;
 
   @AfterInsert()
   private logInsert() {
