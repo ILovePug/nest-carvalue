@@ -13,4 +13,11 @@ nest g controller <controller name>
 # ex. `nest g service users` create file `users/users.service.ts`
 nest g service <service name>
 
-# create a new repository
+
+# Migrations
+# generate a new migration. -n (name), -o (outputJs)
+# ex. `npm run typeorm migration:generate -- -n itial-schema -o`
+npm run typeorm migration:generate -- -n <name> -o
+
+# run and apply migration
+npm run typeorm migration:run
