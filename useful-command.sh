@@ -22,3 +22,8 @@ npm run typeorm migration:generate -- -n <name> -o
 
 # run and apply migration
 npm run typeorm migration:run
+
+
+# production commands to run - set environment variables
+1. heroku config:set COOKIE_KEY=2fergtrfdw
+2. heroku config:set NOD_ENV=production
